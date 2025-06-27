@@ -22,7 +22,7 @@ class CalendarGrid extends StatelessWidget {
     this.selectedDate,
     this.firstDay,
     this.lastDay,
-    this.localization = EthiopianDatePickerLocalization.US, // Default
+    this.localization = EthiopianDatePickerLocalization.us, // Default
   });
 
   // Helper method to compare EthiopianDates
@@ -32,7 +32,9 @@ class CalendarGrid extends StatelessWidget {
     if (date1.year == date2.year && date1.month < date2.month) return true;
     if (date1.year == date2.year &&
         date1.month == date2.month &&
-        date1.day < date2.day) return true;
+        date1.day < date2.day) {
+      return true;
+    }
     return false;
   }
 
@@ -43,7 +45,10 @@ class CalendarGrid extends StatelessWidget {
     if (date1.year == date2.year && date1.month > date2.month) return true;
     if (date1.year == date2.year &&
         date1.month == date2.month &&
-        date1.day > date2.day) return true;
+        date1.day > date2.day) {
+      return true;
+    }
+
     return false;
   }
 
@@ -86,7 +91,6 @@ class CalendarGrid extends StatelessWidget {
 
       final isSelected = selectedDate != null && selectedDate == currentDate;
       final isFirstDay = firstDay != null && firstDay == currentDate;
-      final isLastDay = lastDay != null && lastDay == currentDate;
 
       // Determine if the date is out of range
       final bool isBeforeFirstDay =
@@ -100,8 +104,8 @@ class CalendarGrid extends StatelessWidget {
       Function()? onTapHandler;
 
       if (isSelected) {
-        decoration = BoxDecoration(
-          color: const Color(0xFF228D4D),
+        decoration = const BoxDecoration(
+          color: Color(0xFF228D4D),
           shape: BoxShape.circle,
         );
         textColor = Colors.white;

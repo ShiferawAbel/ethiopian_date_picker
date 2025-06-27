@@ -1,5 +1,3 @@
-/// Ethiopian <-> Gregorian conversion logic.
-
 class CalendarConverter {
   static const int _ethiopianEpoch = 1723856;
 

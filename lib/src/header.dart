@@ -26,7 +26,7 @@ class PickerHeader extends StatefulWidget {
     required this.onYearChanged,
     this.firstDay,
     this.lastDay,
-    this.localization = EthiopianDatePickerLocalization.US, // Default
+    this.localization = EthiopianDatePickerLocalization.us, // Default
   });
 
   @override
@@ -35,13 +35,13 @@ class PickerHeader extends StatefulWidget {
 
 class _PickerHeaderState extends State<PickerHeader> {
   late int selectedYear;
-  late CalendarLocalizations _CalendarLocalizations; // Instance for the state
+  late CalendarLocalizations _calendarLocalizations; // Instance for the state
 
   @override
   void initState() {
     super.initState();
     selectedYear = widget.year;
-    _CalendarLocalizations =
+    _calendarLocalizations =
         CalendarLocalizations(widget.localization); // Initialize localization
   }
 
@@ -52,7 +52,7 @@ class _PickerHeaderState extends State<PickerHeader> {
       selectedYear = widget.year;
     }
     if (widget.localization != oldWidget.localization) {
-      _CalendarLocalizations =
+      _calendarLocalizations =
           CalendarLocalizations(widget.localization); // Update localization
     }
   }
@@ -180,7 +180,7 @@ class _PickerHeaderState extends State<PickerHeader> {
             child: Row(
               children: [
                 Text(
-                  _CalendarLocalizations
+                  _calendarLocalizations
                       .months[widget.month - 1], // Use localized month name
                   style: const TextStyle(
                     fontSize: 14,

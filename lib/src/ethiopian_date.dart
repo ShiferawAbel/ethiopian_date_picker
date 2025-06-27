@@ -20,8 +20,9 @@ class EthiopianDate {
   // >>>>>>>>>>>>>>> IMPORTANT: ADD THESE TWO METHODS <<<<<<<<<<<<<<<
   @override
   bool operator ==(Object other) {
-    if (identical(this, other))
-      return true; // Optimized for same object reference
+    if (identical(this, other)) {
+      return true;
+    } // Optimized for same object reference
     return other is EthiopianDate && // Ensure 'other' is an EthiopianDate
         year == other.year &&
         month == other.month &&

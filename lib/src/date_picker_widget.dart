@@ -22,7 +22,7 @@ class EthiopianDatePicker extends StatefulWidget {
     this.firstDay,
     this.lastDay,
     this.onSelectedDateChanged,
-    this.localization = EthiopianDatePickerLocalization.US, // Default to US
+    this.localization = EthiopianDatePickerLocalization.us, // Default to us
   });
 
   @override
@@ -35,7 +35,7 @@ Future<DateTime?> showEthiopianDatePicker({
   DateTime? firstDate,
   DateTime? lastDate,
   EthiopianDatePickerLocalization localization =
-      EthiopianDatePickerLocalization.US, // New parameter
+      EthiopianDatePickerLocalization.us, // New parameter
 }) {
   final pickerKey = GlobalKey<_EthiopianDatePickerState>();
 
@@ -149,14 +149,6 @@ Future<DateTime?> showEthiopianDatePicker({
   );
 }
 
-// Helper function to get month name (now relies on CalendarLocalizations)
-String _getMonthName(int month) {
-  // This helper function is now redundant as we'll use appLocalizations.months directly
-  // However, if you keep it, it should take a localization parameter.
-  // For simplicity, we'll remove calls to this and use appLocalizations directly where needed.
-  return "Error: Should use appLocalizations.months";
-}
-
 // Helper function to resolve initial EthiopianDate for display in the title
 EthiopianDate? _resolveInitialEthiopianDate(DateTime? initialGregorianDate) {
   if (initialGregorianDate != null) {
@@ -170,13 +162,11 @@ class _EthiopianDatePickerState extends State<EthiopianDatePicker> {
   late EthiopianDate _displayedDate;
   EthiopianDate? _selectedDate;
   final GlobalKey calendarGridKey = GlobalKey();
-  late CalendarLocalizations _appLocalizations; // Instance for the state
 
   @override
   void initState() {
     super.initState();
-    _appLocalizations =
-        CalendarLocalizations(widget.localization); // Initialize localization
+
     _displayedDate = _resolveInitialDate();
     if (widget.initialDate != null) {
       final date = widget.initialDate as DateTime;
@@ -186,17 +176,6 @@ class _EthiopianDatePickerState extends State<EthiopianDatePicker> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.onSelectedDateChanged?.call(_selectedDate);
     });
-  }
-
-  // Update localization if the widget's localization changes
-  @override
-  void didUpdateWidget(covariant EthiopianDatePicker oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.localization != oldWidget.localization) {
-      setState(() {
-        _appLocalizations = CalendarLocalizations(widget.localization);
-      });
-    }
   }
 
   EthiopianDate _resolveInitialDate() {

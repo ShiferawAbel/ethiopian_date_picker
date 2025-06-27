@@ -1,12 +1,12 @@
 // lib/src/localization_data.dart
 
 enum EthiopianDatePickerLocalization {
-  US, // English
-  AM, // Amharic
-  OR, // Oromiffa (Changed from ZA as ZA is South Africa)
-  TI, // Tigrinya (Changed from IN as IN is India)
-  SI, // Sidama (Changed from AU as AU is Australia)
-  SO, // Somali (Changed from GB as GB is Great Britain)
+  us, // English
+  am, // Amharic
+  or, // Oromiffa (Changed from ZA as ZA is South Africa)
+  ti, // Tigrinya (Changed from IN as IN is India)
+  si, // Sidama (Changed from AU as AU is Australia)
+  so, // Somali (Changed from GB as GB is Great Britain)
 }
 
 class CalendarLocalizations {
@@ -15,7 +15,7 @@ class CalendarLocalizations {
   CalendarLocalizations(this.localization);
 
   static const Map<EthiopianDatePickerLocalization, List<String>> _months = {
-    EthiopianDatePickerLocalization.US: [
+    EthiopianDatePickerLocalization.us: [
       'Meskerem',
       'Tikimt',
       'Hidar',
@@ -30,7 +30,7 @@ class CalendarLocalizations {
       'Nehase',
       'Pagumen'
     ],
-    EthiopianDatePickerLocalization.AM: [
+    EthiopianDatePickerLocalization.am: [
       'መስከረም',
       'ጥቅምት',
       'ህዳር',
@@ -45,7 +45,7 @@ class CalendarLocalizations {
       'ነሐሴ',
       'ጳጉሜን'
     ],
-    EthiopianDatePickerLocalization.OR: [
+    EthiopianDatePickerLocalization.or: [
       'Fulbaana',
       'Onkoloolessa',
       'Sadaasa',
@@ -60,7 +60,7 @@ class CalendarLocalizations {
       'Hagayya',
       'Qaammee'
     ],
-    EthiopianDatePickerLocalization.TI: [
+    EthiopianDatePickerLocalization.ti: [
       'መስከረም',
       'ጥቅምቲ',
       'ሕዳር',
@@ -75,7 +75,7 @@ class CalendarLocalizations {
       'ነሓሰ',
       'ጳጉሜን'
     ],
-    EthiopianDatePickerLocalization.SI: [
+    EthiopianDatePickerLocalization.si: [
       'Meskerem',
       'Tikimt',
       'Hidar',
@@ -90,7 +90,7 @@ class CalendarLocalizations {
       'Nehase',
       'Pagumen'
     ], // Placeholder, please provide actual Sidama month names
-    EthiopianDatePickerLocalization.SO: [
+    EthiopianDatePickerLocalization.so: [
       'Meskerem',
       'Tikimt',
       'Hidar',
@@ -108,8 +108,8 @@ class CalendarLocalizations {
   };
 
   static const Map<EthiopianDatePickerLocalization, List<String>> _dayNames = {
-    EthiopianDatePickerLocalization.US: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-    EthiopianDatePickerLocalization.AM: [
+    EthiopianDatePickerLocalization.us: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    EthiopianDatePickerLocalization.am: [
       'እ',
       'ሰ',
       'ማ',
@@ -118,7 +118,7 @@ class CalendarLocalizations {
       'ዓ',
       'ቅ'
     ], // እሁድ, ሰኞ, ማክሰኞ, ረቡዕ, ሐሙስ, ዓርብ, ቅዳሜ
-    EthiopianDatePickerLocalization.OR: [
+    EthiopianDatePickerLocalization.or: [
       'Dil',
       'San',
       'Wal',
@@ -127,7 +127,7 @@ class CalendarLocalizations {
       'Jim',
       'Sanb'
     ], // Dilbata, Sanbata, Waldeeya, Roobii, Kamisa, Jimaata, Sanbata Xiqqaa (approx)
-    EthiopianDatePickerLocalization.TI: [
+    EthiopianDatePickerLocalization.ti: [
       'ሰ',
       'ሰ',
       'ማ',
@@ -136,7 +136,7 @@ class CalendarLocalizations {
       'ዓ',
       'ቀ'
     ], // ሰንበተ, ሰኑይ, ሰሉስ, ረቡዕ, ሓሙስ, ዓርቢ, ቀዳም (approx)
-    EthiopianDatePickerLocalization.SI: [
+    EthiopianDatePickerLocalization.si: [
       'S',
       'M',
       'T',
@@ -145,7 +145,7 @@ class CalendarLocalizations {
       'F',
       'S'
     ], // Placeholder, please provide actual Sidama day names
-    EthiopianDatePickerLocalization.SO: [
+    EthiopianDatePickerLocalization.so: [
       'A',
       'Is',
       'Sl',
@@ -158,37 +158,37 @@ class CalendarLocalizations {
 
   static const Map<EthiopianDatePickerLocalization, Map<String, String>>
       _texts = {
-    EthiopianDatePickerLocalization.US: {
+    EthiopianDatePickerLocalization.us: {
       'selectDate': 'Select date',
       'ok': 'Ok',
       'cancel': 'Cancel',
       'noDateSelected': 'No date selected',
     },
-    EthiopianDatePickerLocalization.AM: {
+    EthiopianDatePickerLocalization.am: {
       'selectDate': 'ቀን ይምረጡ',
       'ok': 'እሺ',
       'cancel': 'ይቅር',
       'noDateSelected': 'ቀን አልተመረጠም',
     },
-    EthiopianDatePickerLocalization.OR: {
+    EthiopianDatePickerLocalization.or: {
       'selectDate': 'Guyyaa Filadhu',
       'ok': 'Tole',
       'cancel': 'Haa Gufatu',
       'noDateSelected': 'Guyyaa hin filatamne',
     },
-    EthiopianDatePickerLocalization.TI: {
+    EthiopianDatePickerLocalization.ti: {
       'selectDate': 'ዕለት ምረፅ',
       'ok': 'ሕራይ',
       'cancel': 'ኣይፋሉ',
       'noDateSelected': 'ዕለት ኣይተመረፀን',
     },
-    EthiopianDatePickerLocalization.SI: {
+    EthiopianDatePickerLocalization.si: {
       'selectDate': 'Saahimaano',
       'ok': 'Ayyo',
       'cancel': 'Hinna',
       'noDateSelected': 'Saahimano Miti',
     }, // Placeholder
-    EthiopianDatePickerLocalization.SO: {
+    EthiopianDatePickerLocalization.so: {
       'selectDate': 'Dooro Taariikhda',
       'ok': 'Haa',
       'cancel': 'Jooji',
@@ -198,16 +198,16 @@ class CalendarLocalizations {
 
   List<String> get months {
     return _months[localization] ??
-        _months[EthiopianDatePickerLocalization.US]!;
+        _months[EthiopianDatePickerLocalization.us]!;
   }
 
   List<String> get dayNames {
     return _dayNames[localization] ??
-        _dayNames[EthiopianDatePickerLocalization.US]!;
+        _dayNames[EthiopianDatePickerLocalization.us]!;
   }
 
   String getText(String key) {
     return _texts[localization]?[key] ??
-        _texts[EthiopianDatePickerLocalization.US]![key]!;
+        _texts[EthiopianDatePickerLocalization.us]![key]!;
   }
 }
