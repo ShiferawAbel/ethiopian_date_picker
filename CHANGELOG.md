@@ -1,15 +1,16 @@
-## 0.0.1
-
-* TODO: Describe initial release.
 CHANGELOG
 0.0.1 - YYYY-MM-DD
 Initial Release of Ethiopian Date Picker.
 
-Core Functionality: Provides a customizable dialog-based Ethiopian date picker for Flutter applications.
+Bidirectional Calendar Conversion:
+
+Input: Accepts initialDate, firstDate, and lastDate in Gregorian (DateTime) format. These are automatically converted to Ethiopian for internal display and constraint application.
+
+Output: Returns the user-selected date in Gregorian (DateTime) format, making integration with standard Flutter apps seamless.
+
+Ethiopian Calendar Display: Provides a customizable dialog-based Ethiopian date picker for Flutter applications.
 
 Date Selection: Allows users to select a specific Ethiopian date.
-
-Gregorian Conversion: Returns the selected Ethiopian date converted to its corresponding Gregorian calendar value (as a DateTime object).
 
 Month & Year Navigation:
 
@@ -19,7 +20,9 @@ Users can select specific years from a dropdown grid.
 
 Date Range Constraints (firstDay, lastDay):
 
-Supports defining a valid date range. Dates outside this range are grayed out and unselectable in the calendar grid.
+Supports defining a valid date range (in Gregorian terms, which are converted to Ethiopian internally).
+
+Dates outside this range are grayed out and unselectable in the calendar grid.
 
 The year selection dropdown and month navigation buttons respect these date range constraints.
 
@@ -27,9 +30,11 @@ Visual Highlighting:
 
 The currently selected date is highlighted with a solid green circular background.
 
-firstDay and lastDay can be visually distinguished (e.g., with light blue/orange backgrounds and borders).
+firstDay and lastDay are styled differently for easy identification.
 
-Localization Support (localization):
+Out-of-range dates are grayed out and non-interactive.
+
+Comprehensive Localization (localization):
 
 Introduced EthiopianDatePickerLocalization enum (US, AM, OR, TI, SI, SO).
 

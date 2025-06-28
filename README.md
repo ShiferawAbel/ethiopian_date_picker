@@ -1,18 +1,22 @@
 Ethiopian Date Picker
-A highly customizable and localized Ethiopian date picker for Flutter applications, designed for easy date selection and integration.
+A highly customizable and localized Ethiopian date picker for Flutter applications, designed for easy date selection and seamless integration with Gregorian date systems.
 
 ✨ Features
-Ethiopian Calendar Support: Select dates using the Ethiopian calendar system.
+Bidirectional Calendar Conversion:
 
-Gregorian Conversion: Automatically converts the selected Ethiopian date to its Gregorian equivalent (DateTime object) upon selection.
+Input Flexibility: Accepts standard Gregorian DateTime objects for initialDate, firstDate, and lastDate. These are automatically converted and displayed in the Ethiopian calendar.
+
+Seamless Output: Returns the user-selected Ethiopian date as a standard Gregorian DateTime object, ensuring effortless compatibility with your existing application logic.
+
+Ethiopian Calendar Display: Provides a customizable dialog-based date picker presenting dates in the Ethiopian calendar system.
 
 Intuitive Navigation:
 
-Effortless month-by-month navigation.
+Effortless month-by-month navigation using chevron buttons.
 
-Quick year selection via a dropdown grid.
+Quick year selection via a convenient dropdown grid.
 
-Date Range Constraints: Define firstDay and lastDay to limit selectable dates, visually graying out unavailable days and restricting navigation.
+Date Range Constraints: Define firstDate and lastDate (in Gregorian) to limit selectable dates; unavailable days are visually grayed out and navigation respects these boundaries.
 
 Clear Visual Feedback:
 
@@ -72,21 +76,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  DateTime? _selectedDate;
+  DateTime? _selectedDate; // This will hold the Gregorian DateTime
 
   Future<void> _pickDate() async {
+    // Pass initialDate, firstDate, and lastDate as Gregorian DateTime
     final DateTime? picked = await showEthiopianDatePicker(
       context: context,
-      initialDate: _selectedDate ?? DateTime.now(), // Optional: provide an initial date
-      firstDate: DateTime(2023, 1, 1), // Optional: Gregorian start date for range
-      lastDate: DateTime(2025, 12, 31), // Optional: Gregorian end date for range
-      localization: EthiopianDatePickerLocalization.AM, // Optional: Change to AM for Amharic
-      // localization: EthiopianDatePickerLocalization.OR, // Or OR for Oromiffa
-      // localization: EthiopianDatePickerLocalization.US, // Default is US (English)
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime(2023, 1, 1), // Gregorian start date for range
+      lastDate: DateTime(2025, 12, 31), // Gregorian end date for range
+      localization: EthiopianDatePickerLocalization.AM, // Example: for Amharic
     );
+
     if (picked != null && picked != _selectedDate) {
       setState(() {
-        _selectedDate = picked;
+        _selectedDate = picked; // The returned value is already Gregorian
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Selected Gregorian Date: ${_selectedDate?.toIso8601String().split('T').first}")),
@@ -106,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               _selectedDate == null
-                  ? 'No date selected'
+                  ? 'No date selected (Gregorian)'
                   : 'Selected Date (Gregorian): ${_selectedDate!.toIso8601String().split('T').first}',
               style: const TextStyle(fontSize: 18),
             ),
@@ -140,10 +144,15 @@ EthiopianDatePickerLocalization.SI (Sidama - Note: Please provide accurate trans
 EthiopianDatePickerLocalization.SO (Somali - Note: Please provide accurate translations in localization_data.dart)
 
 💡 How it Works (Key Insight)
-When a date is selected in the Ethiopian calendar within the picker, the package internally uses CalendarConverter.toGregorian to convert that Ethiopian date into its equivalent Gregorian DateTime object. This Gregorian DateTime value is what is ultimately returned by the showEthiopianDatePicker function. This ensures easy compatibility with standard Flutter and Dart date handling.
+The ethiopian_date_picker package bridges the gap between Gregorian and Ethiopian calendars. When you provide DateTime objects (Gregorian) for initial dates or range constraints, the picker intelligently converts them to Ethiopian for display. When a user makes a selection in the Ethiopian calendar, the chosen date is automatically converted back to a Gregorian DateTime object and returned to your application. This seamless bidirectional conversion allows you to work primarily with Gregorian dates in your app while offering a fully localized Ethiopian date selection experience to your users.
+
+🛣️ What's Next? (Follow for more!)
+This is just the beginning for ethiopian_date_picker! I'm planning to add more exciting features and enhancements to make it even more powerful and versatile.
+
+Follow this package on pub.dev and/or star the repository on GitHub to stay updated on future releases, new features, and improvements! Your support helps grow this project.
 
 🤝 Contributing
-Contributions are welcome! If you find a bug or have a feature request, please open an issue on the GitHub issue tracker.
+Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request on the GitHub issue tracker.
 
 📄 License
 This project is licensed under the MIT License.
