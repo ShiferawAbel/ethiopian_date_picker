@@ -11,7 +11,7 @@ class CalendarConverter {
         DateTime(gDate.year, 9, _isGregorianLeapYear(gDate.year) ? 12 : 11);
     
     final int calculatedEthYear = (gDate.month > 9 ||
-            (gDate.month == 9 && gDate.day >= newYearDay))
+            (gDate.month == 9 && gDate.day >= newYear.day))
         ? (gDate.year - 7)
         : (gDate.year - 8);
   
